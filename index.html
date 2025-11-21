@@ -183,203 +183,145 @@ const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
 
 // ===== Data =====
 const PRODUCTS = [
-  {id:1, title:'Aurora Wireless Headphones', price:3499, compare:4999, rating:4.7, reviews:812, cat:'Audio', img:'https://images.unsplash.com/photo-1518443758784-0e5f0e7adf5c?q=80&w=1200&auto=format&fit=crop', desc:'Immersive sound with active noise canceling and 40h battery.'},
-  {id:2, title:'Nimbus Smartwatch S3', price:5999, compare:7499, rating:4.5, reviews:1203, cat:'Wearables', img:'https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1200&auto=format&fit=crop', desc:'AMOLED display, GPS, SpO2, sleep tracking, and 5ATM water resistance.'},
-  {id:3, title:'Vortex Mechanical Keyboard', price:4299, compare:5299, rating:4.6, reviews:657, cat:'Computers', img:'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop', desc:'Hot‑swappable switches, per‑key RGB, and aluminum top plate.'},
-  {id:4, title:'Stellar 4K Action Cam', price:7999, compare:9999, rating:4.4, reviews:344, cat:'Cameras', img:'https://images.unsplash.com/photo-1519183071298-a2962be96f83?q=80&w=1200&auto=format&fit=crop', desc:'Stabilized 4K60 video, waterproof up to 10m, with voice control.'},
-  {id:5, title:'Pulse Fitness Tracker', price:2499, compare:2999, rating:4.2, reviews:980, cat:'Wearables', img:'https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?q=80&w=1200&auto=format&fit=crop', desc:'Lightweight tracker with heart‑rate, steps, and guided workouts.'},
-  {id:6, title:'Echo Mini Speaker', price:1799, compare:2199, rating:4.1, reviews:2032, cat:'Audio', img:'https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=1200&auto=format&fit=crop', desc:'Room‑filling sound in a compact form with Bluetooth 5.2.'},
-  {id:7, title:'Photon LED Desk Lamp', price:1399, compare:1699, rating:4.8, reviews:412, cat:'Home', img:'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?q=80&w=1200&auto=format&fit=crop', desc:'Adjustable color temperature, USB‑C charging, and auto‑dim sensor.'},
-  {id:8, title:'Trailblazer Backpack 28L', price:2999, compare:3499, rating:4.6, reviews:149, cat:'Travel', img:'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop', desc:'Weather‑resistant, laptop sleeve, and ergonomic straps.'},
-  {id:9, title:'Zen Brew Coffee Maker', price:3699, compare:4499, rating:4.3, reviews:532, cat:'Home', img:'https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=1200&auto=format&fit=crop', desc:'Programmable brewer with thermal carafe and bloom pre‑infuse.'},
-  {id:10, title:'Aero True Wireless Buds', price:2699, compare:3299, rating:4.4, reviews:1112, cat:'Audio', img:'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=1200&auto=format&fit=crop', desc:'ANC earbuds with low‑latency and wireless charging case.'},
-  {id:11, title:'HyperX Portable SSD 1TB', price:6999, compare:8999, rating:4.7, reviews:220, cat:'Computers', img:'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop', desc:'USB‑C 10Gbps speeds with rugged shock‑resistant casing.'},
-  {id:12, title:'Orbit Drone Mini', price:4599, compare:5799, rating:4.0, reviews:321, cat:'Cameras', img:'https://images.unsplash.com/photo-1473968512647-3e447244af8f?q=80&w=1200&auto=format&fit=crop', desc:'Foldable drone with 2K camera and gesture control.'}
+  {id:1, title:'Aurora Wireless Headphones', price:3499, compare:4999, rating:4.7, reviews:812, cat:'Audio', img:'https://source.unsplash.com/400x300/?headphones', desc:'Immersive sound with active noise canceling and 40h battery.'},
+  {id:2, title:'Lunar Mechanical Keyboard', price:6999, compare:8999, rating:4.8, reviews:650, cat:'Accessories', img:'https://source.unsplash.com/400x300/?keyboard', desc:'RGB backlit switches for pro gamers and typing enthusiasts.'},
+  {id:3, title:'Nebula Smartwatch Series 5', price:12999, compare:15999, rating:4.5, reviews:1020, cat:'Wearables', img:'https://source.unsplash.com/400x300/?smartwatch', desc:'Track health, notifications, and workouts with style.'},
+  {id:4, title:'Orion 4K Action Camera', price:8499, compare:10999, rating:4.6, reviews:432, cat:'Photography', img:'https://source.unsplash.com/400x300/?camera', desc:'Capture your adventures in stunning 4K UHD.'},
+  {id:5, title:'SolarSmart Outdoor Lamp', price:1499, compare:1999, rating:4.7, reviews:85, cat:'Home', img:'https://source.unsplash.com/400x300/?lamp', desc:'Solar-powered LED lamp with motion sensor for your garden.'},
+  {id:6, title:'Luna Gaming Chair', price:8999, compare:11999, rating:4.5, reviews:210, cat:'Furniture', img:'https://source.unsplash.com/400x300/?gaming-chair', desc:'Ergonomic chair with lumbar support and RGB lighting.'},
+  {id:7, title:'Aurora Bluetooth Speaker', price:2999, compare:3999, rating:4.6, reviews:540, cat:'Audio', img:'https://source.unsplash.com/400x300/?speaker', desc:'Portable, water-resistant speaker with deep bass.'},
+  {id:8, title:'Stellar Laptop Stand', price:1499, compare:1999, rating:4.8, reviews:220, cat:'Accessories', img:'https://source.unsplash.com/400x300/?laptop', desc:'Aluminum stand to improve ergonomics and cooling.'},
+  {id:9, title:'Galaxy VR Headset', price:15999, compare:19999, rating:4.3, reviews:320, cat:'Wearables', img:'https://source.unsplash.com/400x300/?vr', desc:'Step into immersive virtual worlds with comfort.'},
+  {id:10, title:'Orbit Drone Pro', price:24999, compare:29999, rating:4.7, reviews:145, cat:'Photography', img:'https://source.unsplash.com/400x300/?drone', desc:'Capture breathtaking aerial footage easily.'},
 ];
 
-// ===== State =====
-let state = {
-  q: '',
-  cat: 'All',
-  sort: 'pop',
-  wishlist: load('wishlist', []),
-  cart: load('cart', []),
-  coupon: load('coupon', null)
-};
-
-// ===== Render Helpers =====
-const stars = (n)=> '★★★★★☆☆☆☆☆'.slice(5-Math.round(n)) .slice(0,5);
-function renderCategories(){
-  const cats = ['All', ...new Set(PRODUCTS.map(p=>p.cat))];
-  $('#categories').innerHTML = cats.map(c=><button class="chip ${state.cat===c?'active':''}" data-cat="${c}">${c}</button>).join('');
-  $$('#categories .chip').forEach(b=> b.onclick = ()=>{ state.cat=b.dataset.cat; render(); });
-}
-
-function card(p){
-  const wished = state.wishlist.includes(p.id);
-  return `<article class="card">
-    <div class="thumb" role="button" aria-label="Open ${p.title}" data-open="${p.id}">
-      <img src="${p.img}" alt="${p.title}">
-      <span class="chip-mini">${p.cat}</span>
-      <button class="wish" data-wish="${p.id}" title="${wished?'Remove from':'Add to'} wishlist">${wished? '❤️':'♡'}</button>
-    </div>
-    <div class="body">
-      <div class="title">${p.title}</div>
-      <div class="stars">${'★'.repeat(Math.round(p.rating))}${'☆'.repeat(5-Math.round(p.rating))} <span style="color:#9fb0d4">(${p.reviews})</span></div>
-      <div class="price"><strong>${fmt(p.price)}</strong> <span class="strike">${fmt(p.compare)}</span></div>
-      <div class="add"><button class="btn" data-add="${p.id}">Add to cart</button></div>
-    </div>
-  </article>`;
-}
-
-function applyFilters(list){
-  const q = state.q.toLowerCase();
-  let out = list.filter(p =>
-    (state.cat==='All' || p.cat===state.cat) &&
-    (p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q))
-  );
-  switch(state.sort){
-    case 'low': out.sort((a,b)=>a.price-b.price); break;
-    case 'high': out.sort((a,b)=>b.price-a.price); break;
-    case 'new': out = out.reverse(); break;
-    case 'rate': out.sort((a,b)=>b.rating-a.rating); break;
-    default: out.sort((a,b)=>b.reviews-a.reviews);
-  }
-  return out;
-}
-
-function renderGrid(){
-  const list = applyFilters([...PRODUCTS]);
-  $('#grid').innerHTML = list.map(card).join('');
-  $('#emptyState').style.display = list.length? 'none':'block';
-
-  // Attach item actions
-  $$('[data-add]').forEach(b=> b.onclick = ()=> addToCart(+b.dataset.add));
-  $$('[data-open]').forEach(el=> el.onclick = (e)=>{ if(e.target.closest('.wish')) return; openModal(+el.dataset.open); });
-  $$('[data-wish]').forEach(b=> b.onclick = (e)=>{ e.stopPropagation(); toggleWish(+b.dataset.wish); });
-}
-
-function renderCart(){
-  const items = state.cart.map(row=>{
-    const p = PRODUCTS.find(x=>x.id===row.id);
-    return { ...row, ...p, lineTotal: row.qty * p.price };
-  });
-  $('#cartItems').innerHTML = items.length ? items.map(it=>`
-    <div class="cart-row">
-      <img src="${it.img}" alt="" style="width:64px;height:64px;object-fit:cover;border-radius:10px">
-      <div>
-        <div style="font-weight:600">${it.title}</div>
-        <div style="color:#9fb0d4;font-size:13px">${it.cat}</div>
-        <div class="qty" style="margin-top:6px">
-          <button data-dec="${it.id}">-</button>
-          <span>${it.qty}</span>
-          <button data-inc="${it.id}">+</button>
-          <button class="remove" data-rem="${it.id}">Remove</button>
-        </div>
-      </div>
-      <div style="font-weight:600">${fmt(it.lineTotal)}</div>
-    </div>).join('') : `<div class="empty">Your cart is empty.</div>;
-
-  // totals
-  const subtotal = items.reduce((a,b)=>a+b.lineTotal,0);
-  const discount = calcDiscount(subtotal);
-  const shipping = subtotal - discount >= 4999 || state.coupon==='FREESHIP' ? 0 : 199;
-  const tax = Math.round((subtotal - discount + shipping) * 0.10);
-  const total = subtotal - discount + shipping + tax;
-  $('#tSubtotal').textContent = fmt(subtotal);
-  $('#tDiscount').textContent = '-'+fmt(discount);
-  $('#tShipping').textContent = fmt(shipping);
-  $('#tTax').textContent = fmt(tax);
-  $('#tTotal').textContent = fmt(total);
-
-  // count
-  const count = state.cart.reduce((a,b)=>a+b.qty,0);
-  $('#cartCount').textContent = count;
-
-  // actions
-  $$('[data-inc]').forEach(b=> b.onclick = ()=> changeQty(+b.dataset.inc, +1));
-  $$('[data-dec]').forEach(b=> b.onclick = ()=> changeQty(+b.dataset.dec, -1));
-  $$('[data-rem]').forEach(b=> b.onclick = ()=> removeFromCart(+b.dataset.rem));
-}
-
-function calcDiscount(subtotal){
-  if(state.coupon==='SAVE10') return Math.round(subtotal*0.10);
-  return 0;
-}
-
-function render(){
-  renderCategories();
-  renderGrid();
-  renderCart();
-}
-
-// ===== Actions =====
-function toggleWish(id){
-  const i = state.wishlist.indexOf(id);
-  if(i>-1) state.wishlist.splice(i,1); else state.wishlist.push(id);
-  save('wishlist', state.wishlist);
-  renderGrid();
-}
-
-function addToCart(id, qty=1){
-  const row = state.cart.find(r=>r.id===id);
-  if(row) row.qty = clamp(row.qty+qty,1,99); else state.cart.push({id,qty});
-  save('cart', state.cart); renderCart();
-  openDrawer();
-}
-function changeQty(id,delta){
-  const row = state.cart.find(r=>r.id===id);
-  if(!row) return; row.qty = clamp(row.qty+delta,0,99);
-  if(row.qty===0) state.cart = state.cart.filter(r=>r.id!==id);
-  save('cart', state.cart); renderCart();
-}
-function removeFromCart(id){ state.cart = state.cart.filter(r=>r.id!==id); save('cart', state.cart); renderCart(); }
-
-function openDrawer(){ $('#drawer').classList.add('open'); }
-function closeDrawer(){ $('#drawer').classList.remove('open'); }
-
-function openModal(id){
-  const p = PRODUCTS.find(x=>x.id===id); if(!p) return;
-  $('#mImg').src = p.img; $('#mTitle').textContent = p.title; $('#mDesc').textContent = p.desc; $('#mPrice').textContent = fmt(p.price); $('#mCompare').textContent = fmt(p.compare); $('#mCategory').textContent = p.cat; $('#mStars').textContent = '★'.repeat(Math.round(p.rating))+' '+p.rating.toFixed(1)+' · '+p.reviews+' reviews';
-  $('#mAdd').onclick = ()=> addToCart(p.id);
-  $('#mWish').textContent = state.wishlist.includes(p.id)?'♥ Wishlisted':'♡ Wishlist';
-  $('#mWish').onclick = ()=> { toggleWish(p.id); openModal(p.id); };
-  $('#modal').classList.add('open');
-}
-function closeModal(){ $('#modal').classList.remove('open'); }
-
-// ===== Events =====
-$('#search').addEventListener('input', e=>{ state.q = e.target.value; renderGrid(); });
-$('#sort').addEventListener('change', e=>{ state.sort = e.target.value; renderGrid(); });
-$('#cartBtn').onclick = openDrawer; $('#closeCart').onclick = closeDrawer; $('#drawer').addEventListener('click', e=>{ if(e.target===e.currentTarget) closeDrawer(); });
-$('#modal').addEventListener('click', e=>{ if(e.target===e.currentTarget) closeModal(); });
-$('#mClose').onclick = closeModal;
-
-$('#applyCoupon').onclick = ()=>{
-  const code = $('#coupon').value.trim().toUpperCase();
-  if(['SAVE10','FREESHIP'].includes(code)) { state.coupon = code; save('coupon', code); alert('Coupon applied: '+code); }
-  else { state.coupon = null; save('coupon', null); alert('Invalid coupon'); }
-  renderCart();
-};
-
-$('#checkoutForm').addEventListener('submit', (e)=>{
-  e.preventDefault();
-  const orderId = 'ORD-'+Math.random().toString(36).slice(2,8).toUpperCase();
-  alert('✅ Payment simulated!\nOrder '+orderId+' confirmed. A receipt has been emailed.');
-  state.cart=[]; save('cart', state.cart); renderCart(); closeDrawer();
+// ===== Categories =====
+const categories = ['All', ...new Set(PRODUCTS.map(p=>p.cat))];
+const categoryContainer = $('#categories');
+categories.forEach(c=>{
+  const btn = document.createElement('div');
+  btn.textContent = c; btn.className='chip'+(c==='All'?' active':''); 
+  btn.onclick=()=>{filterCategory(c)};
+  categoryContainer.appendChild(btn);
 });
 
-$('#wishlistBtn').onclick = ()=>{
-  const ids = state.wishlist;
-  if(!ids.length) return alert('Your wishlist is empty. Tap the ♥ on any product to add it.');
-  const names = PRODUCTS.filter(p=>ids.includes(p.id)).map(p=> '• '+p.title).join('\n');
-  alert('Wishlist (local):\n\n'+names);
-};
+let currentCategory = 'All';
+function filterCategory(cat){
+  currentCategory = cat;
+  $$('.chip').forEach(ch=>ch.classList.remove('active'));
+  [...$$('.chip')].find(ch=>ch.textContent===cat)?.classList.add('active');
+  renderGrid();
+}
 
-// Init
-$('#year').textContent = new Date().getFullYear();
-if(state.coupon) $('#coupon').value = state.coupon;
-render();
+// ===== Grid =====
+const grid = $('#grid');
+const emptyState = $('#emptyState');
+
+function renderGrid(){
+  const search = $('#search').value.toLowerCase();
+  const filtered = PRODUCTS.filter(p=>
+    (currentCategory==='All'||p.cat===currentCategory) &&
+    p.title.toLowerCase().includes(search)
+  );
+  grid.innerHTML='';
+  if(!filtered.length){emptyState.style.display='block'; return} else emptyState.style.display='none';
+  filtered.forEach(p=>{
+    const div = document.createElement('div'); div.className='card';
+    div.innerHTML=`
+      <div class="thumb">
+        <img src="${p.img}" alt="${p.title}">
+        <div class="chip-mini">${p.cat}</div>
+        <div class="wish" data-id="${p.id}">♡</div>
+      </div>
+      <div class="body">
+        <div class="title">${p.title}</div>
+        <div class="stars">${'★'.repeat(Math.floor(p.rating))}</div>
+        <div class="price"><strong>${fmt(p.price)}</strong> <span class="strike">${fmt(p.compare)}</span></div>
+        <div class="add"><button class="btn" data-id="${p.id}">Add to cart</button></div>
+      </div>`;
+    grid.appendChild(div);
+  });
+}
+
+// ===== Search =====
+$('#search').addEventListener('input',()=>renderGrid());
+
+// ===== Cart =====
+let CART = load('CART',[]);
+const cartBtn = $('#cartBtn'), drawer = $('#drawer'), closeCart = $('#closeCart');
+cartBtn.onclick=()=>drawer.classList.add('open'); closeCart.onclick=()=>drawer.classList.remove('open');
+
+function updateCart(){
+  save('CART',CART);
+  $('#cartCount').textContent=CART.length;
+  const container = $('#cartItems');
+  container.innerHTML='';
+  if(!CART.length){container.innerHTML='<div class="empty">Cart is empty</div>'; return}
+  CART.forEach(item=>{
+    const p = PRODUCTS.find(pr=>pr.id===item.id);
+    const div = document.createElement('div'); div.className='cart-row';
+    div.innerHTML=`
+      <img src="${p.img}" width="64" height="64">
+      <div>
+        <div>${p.title}</div>
+        <div class="qty">
+          <button data-id="${p.id}" data-action="-">-</button>
+          <span>${item.qty}</span>
+          <button data-id="${p.id}" data-action="+">+</button>
+        </div>
+      </div>
+      <button class="remove" data-id="${p.id}">Remove</button>
+    `;
+    container.appendChild(div);
+  });
+
+  // totals
+  let subtotal = CART.reduce((sum,it)=>sum + PRODUCTS.find(p=>p.id===it.id).price*it.qty,0);
+  let discount = 0; let shipping=0; let tax = subtotal*0.1;
+  $('#tSubtotal').textContent=fmt(subtotal); $('#tDiscount').textContent='-'+fmt(discount); $('#tShipping').textContent=fmt(shipping); $('#tTax').textContent=fmt(tax); $('#tTotal').textContent=fmt(subtotal-discount+shipping+tax);
+
+  // quantity buttons
+  $$('button[data-action]').forEach(b=>{
+    b.onclick=()=>{
+      const id=parseInt(b.dataset.id), act=b.dataset.action;
+      const index = CART.findIndex(c=>c.id===id);
+      if(index<0) return;
+      if(act==='+'){CART[index].qty+=1} else {CART[index].qty-=1; if(CART[index].qty<=0) CART.splice(index,1);}
+      updateCart();
+    }
+  });
+
+  // remove
+  $$('button.remove').forEach(b=>b.onclick=()=>{
+    const id=parseInt(b.dataset.id);
+    CART = CART.filter(c=>c.id!==id); updateCart();
+  });
+}
+
+function addToCart(id){
+  const index = CART.findIndex(c=>c.id===id);
+  if(index<0) CART.push({id,qty:1}); else CART[index].qty+=1;
+  updateCart();
+}
+
+grid.addEventListener('click',e=>{
+  const id = parseInt(e.target.dataset.id);
+  if(id){ addToCart(id); }
+  if(e.target.classList.contains('wish')){ alert('Added to wishlist!'); }
+});
+
+// ===== Coupons =====
+$('#applyCoupon').onclick=()=>{
+  const code = $('#coupon').value.trim().toUpperCase();
+  if(code==='SAVE10'){alert('10% discount applied')} else if(code==='FREESHIP'){alert('Free shipping applied')} else {alert('Invalid coupon');}
+}
+
+// ===== Checkout =====
+$('#checkoutForm').onsubmit=e=>{e.preventDefault(); alert('Payment simulated. Thank you!'); CART=[]; updateCart(); drawer.classList.remove('open');}
+
+// ===== Init =====
+document.getElementById('year').textContent=new Date().getFullYear();
+renderGrid(); updateCart();
 </script>
 </body>
 </html>
