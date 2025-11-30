@@ -1,0 +1,46 @@
+git init
+-initialize an empty git repository
+
+git status
+-inside git repo only, in which branch, how many commits, how mant tracked/untracked files are there
+
+git branch
+-to check the branch
+
+git checkout -b (branch name)
+- new branch so main code do not be affected
+
+git checkout (branch name)
+- to switch to the previous banch
+
+git restore <file>
+- to restore deleted file
+
+git restore --staged <file name>
+- unstage/untrack file which was tracked
+
+git log
+-to check everything what happen in backend if all deletion happened
+
+git revert <commit id>
+- to revert the comitted git
+
+git clone
+-to make clone of repo in github to system
+
+git pull origin main
+- to pull the files after cloning if required any
+
+git add .
+git commit -m  "Updated"
+git push origin main
+
+vim <filename>
+paste the whole code
+
+esc
+:wq
+
+cat <file name>
+- to check the content of file
+
