@@ -1,0 +1,15 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo "Pipeline started..."
+  displayName: "Start Message"
+
+- script: python3 app.py
+  displayName: "Run the sample Python script"
+
+- script: echo "Pipeline completed successfully!"
+  displayName: "End Message"
